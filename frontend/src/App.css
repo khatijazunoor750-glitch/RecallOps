@@ -1,0 +1,388 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fa;
+  color: #172033;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  background: #172033;
+  color: white;
+  padding: 42px 20px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+header p {
+  margin: 10px 0 0;
+  color: #d5dbe5;
+  font-size: 16px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 92%;
+  max-width: 950px;
+  margin: 35px auto 60px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  border: 1px solid #dfe4ec;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.step {
+  min-width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #172033;
+  color: white;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #172033;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================
+   TEXTAREA
+========================= */
+
+textarea {
+  width: 100%;
+  min-height: 130px;
+
+  padding: 16px;
+  margin: 8px 0 18px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 11px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+
+  resize: vertical;
+}
+
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+textarea:focus {
+  outline: none;
+
+  border-color: #172033;
+
+  box-shadow: 0 0 0 3px rgba(23, 32, 51, 0.08);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+  border: none;
+  border-radius: 10px;
+
+  padding: 13px 22px;
+
+  background: #172033;
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   HINDSIGHT MEMORY STATUS
+========================= */
+
+.memory-status {
+  margin-top: 18px;
+
+  padding: 14px 16px;
+
+  border-radius: 10px;
+
+  background: #f0f7ff;
+
+  border: 1px solid #cfe2f5;
+
+  color: #172033;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.memory-status strong {
+  font-size: 14px;
+}
+
+.memory-status span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* =========================
+   RECALLED MEMORIES
+========================= */
+
+.memory {
+  background: #f7faff;
+
+  border: 1px solid #d9e4f2;
+
+  border-radius: 11px;
+
+  padding: 18px;
+
+  color: #263449;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+}
+
+/* =========================
+   AI ANALYSIS
+========================= */
+
+.analysis {
+  background: #fafafa;
+
+  border: 1px solid #e1e5ea;
+
+  border-radius: 11px;
+
+  padding: 20px;
+
+  color: #263449;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+/* Markdown headings */
+
+.analysis h1,
+.analysis h2,
+.analysis h3 {
+  color: #172033;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.analysis h1:first-child,
+.analysis h2:first-child,
+.analysis h3:first-child {
+  margin-top: 0;
+}
+
+/* Markdown paragraphs */
+
+.analysis p {
+  margin: 10px 0;
+}
+
+/* Markdown lists */
+
+.analysis ul,
+.analysis ol {
+  padding-left: 25px;
+  margin: 12px 0;
+}
+
+.analysis li {
+  margin-bottom: 8px;
+}
+
+/* Markdown bold */
+
+.analysis strong {
+  color: #172033;
+}
+
+/* Markdown tables */
+
+.analysis table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin: 18px 0;
+
+  font-size: 14px;
+}
+
+.analysis th,
+.analysis td {
+  border: 1px solid #d9dee7;
+
+  padding: 10px;
+
+  text-align: left;
+
+  vertical-align: top;
+}
+
+.analysis th {
+  background: #f1f4f8;
+  font-weight: bold;
+}
+
+/* =========================
+   LABELS
+========================= */
+
+label {
+  display: block;
+
+  margin: 12px 0 6px;
+
+  color: #172033;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+/* =========================
+   SUCCESS / ERROR MESSAGE
+========================= */
+
+.message {
+  background: #eaf7ed;
+
+  border: 1px solid #c7e6ce;
+
+  color: #245b2b;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  margin-bottom: 30px;
+
+  font-weight: 600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  header {
+    padding: 32px 15px;
+  }
+
+  .logo {
+    font-size: 30px;
+  }
+
+  main {
+    width: 94%;
+    margin-top: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .section-title {
+    gap: 12px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .memory-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .analysis table {
+    display: block;
+    overflow-x: auto;
+  }
+}
