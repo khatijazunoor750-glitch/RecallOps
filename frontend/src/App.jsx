@@ -12,6 +12,8 @@ function App() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const analyzeIncident = async () => {
     if (!incident.trim()) {
       setMessage("Please describe the incident first.");
@@ -23,7 +25,7 @@ function App() {
     setAnalysis(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/analyze", {
+      const response = await fetch(`${API_URL}/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +59,7 @@ function App() {
     setMessage("");
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/resolve", {
+      const response = await fetch(`${API_URL}/resolve`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,27 +89,17 @@ function App() {
 
   return (
     <div className="app">
-
-      {/* Header */}
       <header>
         <div className="logo">🧠 RecallOps</div>
-
-        <p>
-          AI Incident Response Agent with Persistent Memory
-        </p>
+        <p>AI Incident Response Agent with Persistent Memory</p>
       </header>
 
       <main>
-
-        {/* Step 01 */}
         <section className="card">
-
           <div className="section-title">
             <span className="step">01</span>
-
             <div>
               <h2>Describe the Incident</h2>
-
               <p className="subtitle">
                 Tell RecallOps what is happening in production.
               </p>
@@ -120,39 +112,25 @@ function App() {
             placeholder="Example: API latency increased after the latest deployment..."
           />
 
-          <button
-            onClick={analyzeIncident}
-            disabled={loading}
-          >
+          <button onClick={analyzeIncident} disabled={loading}>
             {loading ? "Analyzing..." : "Analyze Incident →"}
           </button>
 
-          {/* Hindsight status */}
           {analysis && (
             <div className="memory-status">
               <strong>🧠 Hindsight Memory Active</strong>
-
-              <span>
-                Previous incident experience recalled
-              </span>
+              <span>Previous incident experience recalled</span>
             </div>
           )}
-
         </section>
 
-        {/* Results */}
         {analysis && (
           <>
-
-            {/* Step 02 */}
             <section className="card">
-
               <div className="section-title">
                 <span className="step">02</span>
-
                 <div>
                   <h2>🧠 Recalled Memories</h2>
-
                   <p className="subtitle">
                     Hindsight searched previous incident experiences.
                   </p>
@@ -162,18 +140,13 @@ function App() {
               <div className="memory">
                 {analysis.recalled_memories}
               </div>
-
             </section>
 
-            {/* Step 03 */}
             <section className="card">
-
               <div className="section-title">
                 <span className="step">03</span>
-
                 <div>
                   <h2>🤖 AI Analysis</h2>
-
                   <p className="subtitle">
                     RecallOps combines the current incident with past memory.
                   </p>
@@ -185,18 +158,13 @@ function App() {
                   {analysis.ai_response}
                 </ReactMarkdown>
               </div>
-
             </section>
 
-            {/* Step 04 */}
             <section className="card">
-
               <div className="section-title">
                 <span className="step">04</span>
-
                 <div>
                   <h2>📋 Record Actual Resolution</h2>
-
                   <p className="subtitle">
                     Store what actually fixed the incident.
                   </p>
@@ -219,27 +187,15 @@ function App() {
                 placeholder="What happened after the fix?"
               />
 
-              <button
-                onClick={saveResolution}
-                disabled={saving}
-              >
+              <button onClick={saveResolution} disabled={saving}>
                 {saving ? "Saving..." : "Save to Hindsight 🧠"}
               </button>
-
             </section>
-
           </>
         )}
 
-        {/* Message */}
-        {message && (
-          <div className="message">
-            {message}
-          </div>
-        )}
-
+        {message && <div className="message">{message}</div>}
       </main>
-
     </div>
   );
 }
